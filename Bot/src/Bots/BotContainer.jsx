@@ -13,11 +13,13 @@ function BotsContainer() {
   }, []); // Empty dependency array ensures this runs only once
 
   return (
-    <div className="App">
-      <h1>Card View Example</h1>
+    <div>
+        <h1>Bots Collection</h1>
+    <div className="card-container">
       {data.map((bot, index) => (
         <Bots key={index} bot={bot} />
       ))}
+    </div>
     </div>
   );
 }

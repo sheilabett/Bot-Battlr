@@ -32,11 +32,42 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
 .card {
   padding: 2em;
 }
 
 .read-the-docs {
   color: #888;
+}
+.body-title{
+  background-color: greenyellow;
+}
+.card-container{
+  display: flex;         /* Use flexbox to arrange cards horizontally */
+  flex-wrap: wrap;       /* Wrap to the next row when no space */
+  justify-content: flex-start; /* Start from the left */
+  gap: 10px;             /* Space between cards */
+}
+
+.card {
+  width: 300px;           /* Adjust the width as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  max-width: 100%;
+}
+
+.card-body {
+  padding: 10px;
+  flex-grow: 1;
+}
+
+/* Optional: If you want to center align card content */
+.card h3, .card p {
+  text-align: center;
 }
