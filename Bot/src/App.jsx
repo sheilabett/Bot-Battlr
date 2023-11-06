@@ -9,6 +9,7 @@ function App() {
 
   return (
     <div>
+      <h3 style={{color: "green"}}>BOT-COLLECTION</h3>
       <BotsContainer/>
     </div>
   )

@@ -1,18 +1,65 @@
 import React from "react";
 
-const Bots = ({ bot }) => {
+const botTypeClasses = {
+    Assault: "icon military",
+    Defender: "icon shield",
+    Support: "icon plus circle",
+    Medic: "icon ambulance",
+    Witch: "icon magic",
+    Captain: "icon star",
+};
+
+const Bots = ({bot, addRemoveBot, inArmy, deleteBot}) => {
     return (
-      <div className="card">
-        <img src={bot.avatar_url} alt={bot.name} />
-        <div className="card-body">
-          <h3>{bot.name}</h3>
-          <p>Health: {bot.health}</p>
-          <p>Damage: {bot.damage}</p>
-          <p>Armor: {bot.armor}</p>
-          <p>Class: {bot.bot_class}</p>
-          <p>Catchphrase: {bot.catchphrase}</p>
+        <div className="ui column">
+        <div
+            className="ui card"
+            key={bot.id}
+            onClick={() => {
+                addRemoveBot(bot, inArmy)
+            }}
+        >
+            <div className="image">
+                <img alt="oh no!" src={bot.avatar_url}/>
+            </div>
+            <div className="content">
+                <div className="header">
+                    {bot.name}
+                    <i className={botTypeClasses[bot.bot_class]}/>
+                </div>
+                <div className="meta text-wrap">
+                    <small>{bot.catchphrase}</small>
+                </div>
+            </div>
+            <div className="extra content">
+      <span>
+        <i className="icon heartbeat"/>
+          {bot.health}
+      </span><span>
+        <i className="icon lightning"/>
+                    {bot.damage}
+      </span>
+                <span>
+        <i className="icon shield"/>
+                    {bot.armor}
+      </span>
+                <span>
+        <div className="ui center aligned segment basic">
+          <button
+
+              className="ui mini red button"
+              style={{backgroundColor: "green"}}
+              onClick={() => {
+                  deleteBot(bot)
+              }}
+          >
+            Delete
+          </button>
         </div>
-      </div>
+      </span>
+            </div>
+        </div>
+    </div>
     );
   };
   
